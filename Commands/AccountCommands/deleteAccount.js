@@ -1,6 +1,6 @@
-const { db } = require('../../Database/database.js')
+import { db } from '../../Database/database.js'
 
-function deleteAccount(msg) {
+export function deleteAccount(msg) {
     let exists = false
 
     db.collection("accounts").get().then((snapshot) => {
@@ -21,8 +21,4 @@ function deleteAccount(msg) {
     }).catch((err) => {
         console.log('Error getting documents: ', err);
     });
-}
-
-module.exports = {
-    deleteAccount
 }

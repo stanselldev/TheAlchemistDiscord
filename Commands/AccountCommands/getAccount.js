@@ -1,6 +1,6 @@
-const { db } = require('../../Database/database.js')
+import { db } from '../../Database/database.js'
 
-async function getAccount(msg) {
+export async function getAccount(msg) {
   let userId = msg.author.id
 
   let account = await db.collection("accounts").doc(userId).get()
@@ -10,8 +10,4 @@ async function getAccount(msg) {
   })
 
   return account
-}
-
-module.exports = {
-  getAccount
 }

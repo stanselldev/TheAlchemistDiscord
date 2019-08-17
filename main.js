@@ -1,7 +1,8 @@
-const { DISCORD_BOT_SECRET } = require("./tokens")
-const { processCommand } = require('./Commands/processCommand')
-const Discord = require('discord.js')
+import { processCommand } from './Commands/processCommand'
+import { DISCORD_BOT_SECRET } from './tokens'
+import Discord from 'discord.js'
 
+// CLIENT SETUP
 const Client = new Discord.Client()
 
 Client.on('ready', () => {

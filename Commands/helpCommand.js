@@ -1,4 +1,4 @@
-function helpCommand(args, msg) {
+export function helpCommand(args, msg) {
     msg.author.send(`
       ...\n
       ***GETTING STARTED***
@@ -6,8 +6,4 @@ function helpCommand(args, msg) {
       TODO: FILL THIS FORM OUT!
       \`\`\`
     `)
-}
-
-module.exports = {
-  helpCommand
 }

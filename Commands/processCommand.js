@@ -1,7 +1,7 @@
-const { helpCommand } = require("./helpCommand")
-const { processAccountCommand } = require("./AccountCommands/processAccountCommand")
+import { helpCommand } from "./helpCommand"
+import { processAccountCommand } from "./AccountCommands/processAccountCommand"
 
-function processCommand(msg) {
+export function processCommand(msg) {
     let fullCommand = msg.content.substr(1)
     let splitCommand = fullCommand.split(" ")
     let command = splitCommand[0]
@@ -13,8 +13,4 @@ function processCommand(msg) {
     } else if (command == "account" || command == "acc") {
         processAccountCommand(msg, args, command)
     }
-}
-
-module.exports = {
-  processCommand
 }

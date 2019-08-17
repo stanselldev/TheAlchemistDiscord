@@ -1,6 +1,6 @@
-const { db } = require('../../Database/database.js')
+import { db } from '../../Database/database.js'
 
-function viewAccount(msg) {
+export function viewAccount(msg) {
     let exists = false
 
     db.collection("accounts").get().then((snapshot) => {
@@ -20,8 +20,4 @@ function viewAccount(msg) {
     }).catch((err) => {
         console.log('Error getting documents: ', err);
     });
-}
-
-module.exports = {
-    viewAccount
 }

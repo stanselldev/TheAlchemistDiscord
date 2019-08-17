@@ -4,13 +4,21 @@
   "description": "",
   "main": "main.js",
   "scripts": {
+    "start": "nodemon --exec babel-node main.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
     "discord.js": "11.4.2",
+    "dotenv": "^8.0.0",
     "firebase": "5.8.2",
     "firebase-admin": "7.0.0"
   },
   "author": "Cameron Stansell and Andrew Parfitt",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/node": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "nodemon": "^1.19.1"
+  }
 }
