@@ -22,3 +22,5 @@ Client.on('message', msg => {
 })
 
 Client.login(DISCORD_BOT_SECRET)
+
+console.log('hello')
