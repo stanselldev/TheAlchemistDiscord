@@ -17,13 +17,22 @@ export function createAccount(msg) {
             db.collection("accounts").doc(userId).set({
                 username: username,
                 userId,
+                knowledgeLevel: 0,
                 inventory: {},
-                instance: {
-                        active: false,
-                        startTime: null,
-                        instanceId: null
-                    }
-                })
+                highestArea: { 
+                    area: 1,
+                    drops: [
+                        false,
+                        false,
+                        false
+                    ]
+                },
+                areaCurrentlyOn: {
+                    active: false,
+                    startTime: null,
+                    instanceId: null
+                }
+            })
             msg.channel.send(`\`\`\`Account successfully created.\`\`\``)
         }
     }).catch((err) => {

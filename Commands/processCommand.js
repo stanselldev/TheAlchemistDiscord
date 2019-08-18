@@ -1,6 +1,6 @@
 import { helpCommand } from "./helpCommand"
 import { processAccountCommand } from "./AccountCommands/processAccountCommand"
-import { displayAreas } from './GameCommands/displayAreas'
+import { processExploreCommand } from './GameCommands/processExploreCommand'
 
 export function processCommand(msg) {
     let fullCommand = msg.content.substr(1)
@@ -14,8 +14,8 @@ export function processCommand(msg) {
     } else if (command == "account" || command == "acc") {
         processAccountCommand(msg, args, command)
 
-    } else if (command == "areas" || command == "a") {
-        displayAreas(msg, args)
+    } else if (command == "explore") {
+        processExploreCommand(msg, args)
         
     }
 }
