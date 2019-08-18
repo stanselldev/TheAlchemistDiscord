@@ -6,9 +6,5 @@ export async function displayAreas(msg, args, reactions) {
     let embed = await formatAreasEmbed(account, reactions)
     let msgOut = await msg.channel.send({ embed })
 
-    for (let i = 0; i < reactions.length; i++) {
-        await msgOut.react(reactions[i])
-    }
-
     return msgOut
 }
