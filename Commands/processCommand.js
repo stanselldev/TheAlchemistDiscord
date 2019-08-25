@@ -1,6 +1,7 @@
 import { helpCommand } from "./helpCommand"
 import { processAccountCommand } from "./AccountCommands/processAccountCommand"
-import { processExploreCommand } from './GameCommands/processExploreCommand'
+import { processExploreCommand } from './GameCommands/EXPLORE/processExploreCommand'
+import { processStatusCommand } from './GameCommands/STATUS/processStatusCommand'
 import { patchCommand } from "./patchCommand";
 
 export function processCommand(msg) {
@@ -15,8 +16,11 @@ export function processCommand(msg) {
     } else if (command == "account" || command == "acc") {
         processAccountCommand(msg, args, command)
 
-    } else if (command == "explore") {
+    } else if (command == "explore" || command == "ex") {
         processExploreCommand(msg, args)
+
+    } else if (command == "status" || command == "st") {
+        processStatusCommand(msg, args)
         
     } else if (command == "patch") {
         patchCommand(args, msg)

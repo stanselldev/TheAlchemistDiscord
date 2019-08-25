@@ -30,7 +30,7 @@ export function createAccount(msg) {
                 areaCurrentlyOn: {
                     active: false,
                     startTime: null,
-                    instanceId: null
+                    instanceName: null
                 }
             })
             msg.channel.send(`\`\`\`Account successfully created.\`\`\``)

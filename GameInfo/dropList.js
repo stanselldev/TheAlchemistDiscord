@@ -1,15 +1,15 @@
 export const drops = {
     a1: {
-        name: "Soil",
-        info: "Black earth sustains all life in some manner."
+        name: "Stone",
+        info: "Bones of the earth give strength."
     },
     a2: {
-        name: "Sodium Ash",
-        info: "Burned plants produces this strange substance."
+        name: "Herbs",
+        info: "Nutritious, poisonous, or fibrous, every herb can have a use."
     },
     a3: {
-        name: "Sulfuric Water",
-        info: "It burns the hands if one is not careful."
+        name: "Water",
+        info: "The source of all life bound to this planet."
     },
     a4: {
         name: "Lobster's Heart",
