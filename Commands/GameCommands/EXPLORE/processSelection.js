@@ -5,10 +5,10 @@ export async function processSelection(msg, selection, account) {
 
     let activeInstance = {
         active: true,
-        instanceName: area.name,
-        instanceType: "area",
-        instanceMinutes: area.minutes,
-        startTime: 1234
+        name: area.name,
+        type: "area",
+        minutes: area.minutes,
+        startTime: Math.round(new Date().getTime() / 1000)
     }
 
     account.activeInstance = activeInstance

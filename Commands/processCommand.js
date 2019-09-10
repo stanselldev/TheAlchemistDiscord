@@ -2,7 +2,7 @@ import { helpCommand } from "./helpCommand"
 import { processAccountCommand } from "./AccountCommands/processAccountCommand"
 import { processExploreCommand } from './GameCommands/EXPLORE/processExploreCommand'
 import { processStatusCommand } from './GameCommands/STATUS/processStatusCommand'
-import { patchCommand } from "./patchCommand";
+import { processPatchCommand } from "./processPatchCommand";
 
 export function processCommand(msg) {
     let fullCommand = msg.content.substr(1)
@@ -23,6 +23,6 @@ export function processCommand(msg) {
         processStatusCommand(msg, args)
         
     } else if (command == "patch") {
-        patchCommand(args, msg)
+        processPatchCommand(args, msg)
     }
 }

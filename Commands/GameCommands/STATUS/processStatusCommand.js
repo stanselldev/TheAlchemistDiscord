@@ -1,11 +1,13 @@
 import { getAccount } from '../../../Commands/AccountCommands/getAccount'
 import { db } from '../../../Database/database'
+import { areas } from '../../../GameInfo/instanceData'
 
 export async function processStatusCommand(msg, args) {
     const account = await getAccount(msg)
 
     // Get activeInstance: active, instanceMinutes, startTime, and instanceName
     const { active, minutes, name, number, startTime, type } = account.activeInstance
+    const { inventory } = account
 
     // Check if active
     if (!active) {
@@ -15,18 +17,27 @@ export async function processStatusCommand(msg, args) {
     }
 
     // Convert instanceMinutes to seconds; ttc = time to complete
-    const ttc = instanceMinutes * 60
+    const ttc = minutes * 60
 
     // Check if (instanceSeconds + startTime) > currentTime
-    const currentTime = new Date().getTime() / 1000
+    const currentTime = Math.round(new Date().getTime() / 1000)
     const timeElapsed = startTime + ttc
 
-    if (timeElapsed > currentTime) {
+    if (timeElapsed < currentTime) {
 
         // Process winnings
-        processInstanceReturns(msg) 
+        // let updatedInventory = await processInstanceReturns(msg, inventory) 
+        let area = areas.filter(area => area.area == number)
+        console.log(area)
+
+        let updatedInventory
 
         // Add winnings
+        account.inventory = {
+            ...updatedInventory
+        }
+
+        console.log(account.inventory)
 
         // Reset activeInstance data
         account.activeInstance = {
@@ -46,6 +57,6 @@ export async function processStatusCommand(msg, args) {
     } else {
 
         // Let user know how much time they have left
-        const timeRemaining = currentTime - timeElapsed
+        const timeRemaining = timeElapsed - currentTime
     }
 }
